@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elijah's Citi Bike Data</title>
+<style>
+    body, html {
+            margin: 0;
+            padding: 0;
+            background-color: hwb(0 20% 80%); /* Plain background */
+            font-family: 'Courier New', Courier, monospace; /* Monospaced font */
+            color: black;
+            font-size: 16px;
+        }
+
+        header .header-content {
+    display: flex; /* Enables flexbox layout */
+    align-items: right; /* Vertically centers the items in the container */
+    justify-content: flex-start; /* Aligns items to the start of the container, you can adjust as needed */
+    flex-wrap: wrap; /* Allows items to wrap to the next line if not enough space */
+}
+
+.header-content .link-text,
+.header-content .title {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-right: 20px; /* Adds some space on the right */
+    text-align: right; /* Aligns text to the right; use only if .title is a block-level element */
+    font-size: 24px; /* Increases the font size */
+    font-weight: bold; /* Makes the font weight bold */
+    color: #f0eeee; /* Sets the text color to a dark shade for better readability */
+    display: block; /* Makes the .title fill the available horizontal space, enabling text-align to work */
+}
+
+.header-content .link-text p {
+    margin: 150; /* Removes default paragraph margin */
+    font-size: 14px; /* Decreases the font size to make the text smaller */
+    line-height: 1.4;
+    color: #333;
+    text-align: right;
+}
+        p {
+            background-color: #e0e0e0; /* Light gray background for paragraphs */
+            padding: 10px;
+            width: 80%; /* Limit paragraph width */
+            margin: 10px auto; /* Center paragraphs */
+            box-shadow: 3px 3px 0 #ffffff; /* Add a small shadow for depth */
+        }
+
+.tableauPlaceholder {
+            display: block; /* Ensures the div behaves as a block-level element */
+             margin-left: auto; /* Centers the element by automatically adjusting the left margin */
+             margin-right: auto; 
+}
+
+footer {
+    margin-top: auto; /* Pushes the footer to the bottom */
+    padding: 20px 0; /* Adds padding to the top and bottom of the footer */
+    background-color: #e0e0e0; /* Sets a light gray background for the footer to match paragraph styling */
+    text-align: end; /* Centers footer content */
+    font-family: 'Courier New', Courier, monospace; /* Ensures font consistency with the body */
+    color: #333; /* Sets the text color for the footer, ensuring readability */
+}
+
+    </style>
+</head>
+<header>
+    <div class="header-content">
+        <div class="title">
+            <h1>Elijah's Citi Bike Data</h1>
+        <div class="link-text">
+            <p>View this Viz on Tableau public <a href="https://public.tableau.com/views/ElijahsCitiBike/CompletedRidesin2023?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link" target="_blank">Elijah's Citi Bike Tableau Report</a>.</p>
+        </div>
+        </div>
+    </div>
+</header>
+
+</div>
+     <body>
+        <p>
+            One of the most popular bike share systems in the United States, and a defining feature of New York's identity, is the Citi Bike system, which launched in May 2013. It has significantly impacted the lives of many New Yorkers, myself included. I began using Citi Bike in 2016 after they introduced a reduced fare option for eligible New Yorkers, and I qualified for it. The regular cost of the bike share system is $219.99 annually for average users, while Reduced Fare Riders, like me, pay $5.44 a month, totaling around $70 a year. This is significantly more affordable compared to the weekly cost of subway rides. Given how frequently I use Citi Bike throughout the year to get almost anywhere, I found examining my personal Citi Bike data compelling. Citi Bike provides system data that can answer key questions, as stated on the Citi Bike system data website: “Where do Citi Bikers ride? When do they ride? How far do they go? Which stations are most popular? What days of the week are most rides taken on?” I wanted to explore similar questions for myself and see how I could use my data to answer more specific inquiries, such as whether I used only a few bikes repeatedly, especially as bikes are frequently in motion, and how the advent of e-bikes has changed the dynamics of my system usage for commuting.<br><br>
+            
+            Initially, I thought exporting my personal Citi Bike data would be straightforward, assuming the Citi Bike system's tracking capabilities and data accessibility would make this easy. However, after attempting to use the "export" button in the Citi Bike app and conducting several Reddit searches, I discovered that this feature was not functioning. I then resorted to manually copying and pasting my ride data from the Citi Bike website into a spreadsheet, a process that quickly became laborious as I had to open each ride entry to gather all possible information.<br><br>
+            
+            Dealing with the information in this manner was challenging, as Tableau interpreted it as a single field, whereas I needed dates to serve as my primary reference point, with every subsequent detail as an observation of that date. I consulted ChatGPT for assistance in organizing my data. After providing the AI with my data and adding identifiers next to the fields as suggested, my data became much more manageable, enabling me to start creating graphs.<br><br>
+            
+            Surprisingly, accessing personal data from Citi Bike proved more difficult than anticipated. One would assume the website or app could easily facilitate this, given their systems can query the data. Yet, there is no dashboard to visualize rides or answer lingering questions like, “Have I used this bike before?” Although there is some degree of automation, as the system texts you when you visit a new station, it seems there's room for improvement in data accessibility.<br><br>
+            
+            I then created a network graph of the stations I visited in 2023, using calculated fields in Tableau and latitude/longitude coordinates. By removing the base map, I focused more on the pattern of my rides, showing that I visited numerous stations across Manhattan and a few in Queens, Brooklyn, and even the Bronx. I attempted to adjust the network to reflect the frequency of visits to each station, intending for those nearer to my home to appear larger than the less frequently visited ones.
+        </p>
+        
+            
+<! -- Bike Network -->
+
+            <div class='tableauPlaceholder' id='viz1712697442443'>
+                <noscript><a href='#'>
+                <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;YP&#47;YPB8DBCY5&#47;1_rss.png' /> </a>
+                </noscript> 
+                    <object class='tableauViz'  style='display:none;'>
+                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                        <param name='embed_code_version' value='3' /> 
+                        <param name='path' value='shared&#47;YPB8DBCY5' /> 
+                        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;YP&#47;YPB8DBCY5&#47;1.png' /> 
+                        <param name='animate_transition' value='yes' />
+                        <param name='display_static_image' value='yes' />
+                        <param name='display_spinner' value='yes' />
+                        <param name='display_overlay' value='yes' />
+                        <param name='display_count' value='yes' />
+                        <param name='language' value='en-US' />
+                    </object>
+            </div>               
+                <script type='text/javascript'>                    
+                    var divElement = document.getElementById('viz1712697442443');                    
+                    var vizElement = divElement.getElementsByTagName('object')[0];                    
+                        vizElement.style.width='90%';
+                        vizElement.style.height=(divElement.offsetWidth*0.50)+'px';   
+                        vizElement.style.alignItems='center';                 
+                    var scriptElement = document.createElement('script');                    
+                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                   
+                        vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+                </script>
+
+        <p> Following that, I created a line graph to illustrate my riding activity over the months of 2023. Eager to delve deeper, I compared the minutes I spent riding on different days and the types of bikes I used (Classic vs. E-bike) that ended as an area line graph for starkness and differece between the bike types and time spent.
+        </p>
+
+<! -- Time riding -->
+        <div class='tableauPlaceholder' id='viz1712697553019'>
+            <noscript>
+                <a href='#'>
+                <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DK&#47;DKC6K8X7P&#47;1_rss.png' style='border: none' /> </a>
+            </noscript> 
+                <object class='tableauViz'  style='display:none;'>
+                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                    <param name='embed_code_version' value='3' /> 
+                    <param name='path' value='shared&#47;DKC6K8X7P' /> 
+                    <param name='toolbar' value='no' />
+                    <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DK&#47;DKC6K8X7P&#47;1.png' /> 
+                    <param name='animate_transition' value='yes' />
+                    <param name='display_static_image' value='yes' />
+                    <param name='display_spinner' value='yes' />
+                    <param name='display_overlay' value='yes' />
+                    <param name='display_count' value='yes' />
+                    <param name='language' value='en-US' />
+                </object>
+         </div>                
+            <script type='text/javascript'>                    
+                var divElement = document.getElementById('viz1712697553019');                    
+                var vizElement = divElement.getElementsByTagName('object')[0];                    
+                    vizElement.style.width='95%';
+                    vizElement.style.height=(divElement.offsetWidth*0.70)+'px';                    
+                var scriptElement = document.createElement('script');                    
+                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+                    vizElement.parentNode.insertBefore(scriptElement, vizElement);               
+            </script>
+     
+         <p>     
+                I also explored my ride frequency per day, discovering I took up to 9 rides in a single day! Using a stacked bar graph, I visualized this data alongside the count for each day, providing insights into my biking habits, including days I didn't bike, which were indicated by gaps in the graph.
+        </p>
+
+<! --Rides Each day -->
+<div class='tableauPlaceholder' id='viz1712765425942' style='position: relative'>
+    <noscript>
+        <a href='#'>
+        <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;El&#47;ElijahsCitiBike&#47;RidesPerDay&#47;1_rss.png' style='border: none' />
+        </a>
+    </noscript>
+        <object class='tableauViz'  style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+            <param name='embed_code_version' value='3' /> 
+            <param name='site_root' value='' />
+            <param name='name' value='ElijahsCitiBike&#47;RidesPerDay' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='no' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;El&#47;ElijahsCitiBike&#47;RidesPerDay&#47;1.png' /> 
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='en-US' />
+        </object>
+</div>                
+    <script type='text/javascript'>                    
+        var divElement = document.getElementById('viz1712765425942');                    
+        var vizElement = divElement.getElementsByTagName('object')[0];                    
+            vizElement.style.width='60%';
+            vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                   
+        var scriptElement = document.createElement('script');                    
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+    </script>
+        <p> 
+            Curious about my unique bike usage, I learned that out of over 400 rides in 2023, I used a few bikes multiple times.
+        </p>
+
+ <! --Unique bikes -->
+
+ <div class='tableauPlaceholder' id='viz1712765000921'>
+    <noscript>
+        <a href='#'>
+        <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;El&#47;ElijahsCitiBike&#47;bikestaken&#47;1_rss.png' style='border: none' />
+        </a>
+    </noscript>
+        <object class='tableauViz'  style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='ElijahsCitiBike&#47;bikestaken' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='no' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;El&#47;ElijahsCitiBike&#47;bikestaken&#47;1.png' /> 
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /><param name='language' value='en-US' />
+        </object>
+</div>                
+    <script type='text/javascript'>                    
+            var divElement = document.getElementById('viz1712765000921');                    
+            var vizElement = divElement.getElementsByTagName('object')[0];                    
+                vizElement.style.width='90%';
+                vizElement.style.height=(divElement.offsetWidth*0.50)+'px';                    
+            var scriptElement = document.createElement('script');                    
+                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+                vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+    </script>
+
+     <p>Further analysis could explore the incidental fees associated with e-bike usage and the total amount spent, considering the frequency of e-bike use. Given my extensive use of Citi Bike, which totals over 1700 rides according to their records, a personalized dashboard on the Citi Bike website or app could significantly enhance the user experience by providing a comprehensive overview of one’s biking habits and preferences.
+     </p>
+
+<! --Dashboard -->
+    <div class='tableauPlaceholder' id='viz1712697686961'>
+        <noscript> 
+            <a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;27&#47;27R3JSMKZ&#47;1_rss.png' style='border: none' /> </a>
+        </noscript>
+            <object class='tableauViz'  style='display:none;' style="position: relative;">
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                <param name='embed_code_version' value='3' /> 
+                <param name='path' value='shared&#47;27R3JSMKZ' /> 
+                <param name='toolbar' value='no' />
+                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;27&#47;27R3JSMKZ&#47;1.png' /> 
+                <param name='animate_transition' value='yes' />
+                <param name='display_static_image' value='yes' />
+                <param name='display_spinner' value='yes' />
+                <param name='display_overlay' value='yes' />
+                <param name='display_count' value='yes' />
+                <param name='language' value='en-US' />
+            </object></div>                
+        <script type='text/javascript'>                    
+            var divElement = document.getElementById('viz1712697686961');                    
+            var vizElement = divElement.getElementsByTagName('object')[0];                    
+                vizElement.style.width='90%';
+                vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    
+            var scriptElement = document.createElement('script');                    
+                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+                vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+        </script>
+        </body>
+
+    <footer>
+            <p>Created by Elijah Nunez
+            </p>
+ </footer>
+        
+</html>
