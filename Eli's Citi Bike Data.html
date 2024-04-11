@@ -80,13 +80,13 @@ footer {
         <p>
             One of the most popular bike share systems in the United States, and a defining feature of New York's identity, is the Citi Bike system, which launched in May 2013. It has significantly impacted the lives of many New Yorkers, myself included. I began using Citi Bike in 2016 after they introduced a reduced fare option for eligible New Yorkers, and I qualified for it. The regular cost of the bike share system is $219.99 annually for average users, while Reduced Fare Riders, like me, pay $5.44 a month, totaling around $70 a year. This is significantly more affordable compared to the weekly cost of subway rides. Given how frequently I use Citi Bike throughout the year to get almost anywhere, I found examining my personal Citi Bike data compelling. Citi Bike provides system data that can answer key questions, as stated on the Citi Bike system data website: “Where do Citi Bikers ride? When do they ride? How far do they go? Which stations are most popular? What days of the week are most rides taken on?” I wanted to explore similar questions for myself and see how I could use my data to answer more specific inquiries, such as whether I used only a few bikes repeatedly, especially as bikes are frequently in motion, and how the advent of e-bikes has changed the dynamics of my system usage for commuting.<br><br>
             
-            Initially, I thought exporting my personal Citi Bike data would be straightforward, assuming the Citi Bike system's tracking capabilities and data accessibility would make this easy. However, after attempting to use the "export" button in the Citi Bike app and conducting several Reddit searches, I discovered that this feature was not functioning. I then resorted to manually copying and pasting my ride data from the Citi Bike website into a spreadsheet, a process that quickly became laborious as I had to open each ride entry to gather all possible information.<br><br>
+            Initially, I thought exporting my personal Citi Bike data would be straightforward, assuming the Citi Bike system's tracking capabilities and data accessibility would make this easy. However, after attempting to use the "export" button in the Citi Bike app and scanning several Reddit threads, I discovered that this feature was not functioning. I then resorted to manually copying and pasting my ride data from the Citi Bike website into a spreadsheet, a process that quickly became difficult as I had to open each ride from my ride history to gather all possible information.<br><br>
             
-            Dealing with the information in this manner was challenging, as Tableau interpreted it as a single field, whereas I needed dates to serve as my primary reference point, with every subsequent detail as an observation of that date. I consulted ChatGPT for assistance in organizing my data. After providing the AI with my data and adding identifiers next to the fields as suggested, my data became much more manageable, enabling me to start creating graphs.<br><br>
+            Dealing with the data in this manner was challenging, as the spreadsheet interpreted it as a single field, whereas I needed dates to serve as my primary reference point, with every subsequent detail as an observation of that date. I used ChatGPT for assistance in organizing my data. After providing the AI with my data and adding identifiers next to the fields as suggested, my data became much more manageable, enabling me to start creating my visualizations.<br><br>
             
-            Surprisingly, accessing personal data from Citi Bike proved more difficult than anticipated. One would assume the website or app could easily facilitate this, given their systems can query the data. Yet, there is no dashboard to visualize rides or answer lingering questions like, “Have I used this bike before?” Although there is some degree of automation, as the system texts you when you visit a new station, it seems there's room for improvement in data accessibility.<br><br>
+            A note on collecting this data: To my suprise , accessing personal data from Citi Bike proved more difficult than anticipated. One would assume the website or app could easily facilitate this, given their systems can query the data in much larger portions. Yet, there is no dashboard to visualize rides or answer lingering questions like, “Have I used this bike before?” Although there is some degree of automation, as the system texts you when you visit a new station, it seems there's room for improvement in data accessibility.<br><br>
             
-            I then created a network graph of the stations I visited in 2023, using calculated fields in Tableau and latitude/longitude coordinates. By removing the base map, I focused more on the pattern of my rides, showing that I visited numerous stations across Manhattan and a few in Queens, Brooklyn, and even the Bronx. I attempted to adjust the network to reflect the frequency of visits to each station, intending for those nearer to my home to appear larger than the less frequently visited ones.
+            As I started to work with the data the first graph I wanted to make was a netowrk. I then created a network graph of the stations I visited in 2023, using calculated fields in Tableau and latitude/longitude coordinates. By removing the base map, I focused more on the pattern of my rides, showing that I visited numerous stations across Manhattan and a few in Queens, Brooklyn, and even the Bronx. I attempted to adjust the network to reflect the frequency of visits to each station, intending for those nearer to my home to appear larger than the less frequently visited ones. Althuogh I would have liked for the stations points to be bigger the more I used them. 
         </p>
         
             
@@ -154,7 +154,7 @@ footer {
             </script>
      
          <p>     
-                I also explored my ride frequency per day, discovering I took up to 9 rides in a single day! Using a stacked bar graph, I visualized this data alongside the count for each day, providing insights into my biking habits, including days I didn't bike, which were indicated by gaps in the graph.
+                I also explored my ride frequency per day. One thing I took away was I took up to 9 rides in a single day! Using a stacked bar graph, I visualized this data alongside the count for each day, providing insights into my biking habits, including days I didn't bike, which were indicated by gaps in the graph.
         </p>
 
 <! --Rides Each day -->
@@ -190,7 +190,7 @@ footer {
             vizElement.parentNode.insertBefore(scriptElement, vizElement);                
     </script>
         <p> 
-            Curious about my unique bike usage, I learned that out of over 400 rides in 2023, I used a few bikes multiple times.
+            Curious about my unique bike usage, I learned that out of over 400 rides in 2023, I used a few bikes multiple times. The max times I used the same bike was an E-bike 3 times. 
         </p>
 
  <! --Unique bikes -->
@@ -226,7 +226,7 @@ footer {
                 vizElement.parentNode.insertBefore(scriptElement, vizElement);                
     </script>
 
-     <p>Further analysis could explore the incidental fees associated with e-bike usage and the total amount spent, considering the frequency of e-bike use. Given my extensive use of Citi Bike, which totals over 1700 rides according to their records, a personalized dashboard on the Citi Bike website or app could significantly enhance the user experience by providing a comprehensive overview of one’s biking habits and preferences.
+     <p>Some data points I would like to explore futher are the incidental fees associated with e-bike usage and the total amount spent, considering the frequency of e-bike use. Given my extensive use of Citi Bike, which totals over 1700 rides in the years that I have spent using it, a personalized dashboard on the Citi Bike website or app could significantly enhance the user experience by providing a comprehensive overview of one’s biking habits and preferences.
      </p>
 
 <! --Dashboard -->
